@@ -20,6 +20,12 @@ const App = () => {
     setMovies(data.Search);
   };
 
+  const enterSearch = (e) => {
+    if ( e.key === "Enter"){
+      searchMovies(searchTerm)
+    }
+  };
+
 
   useEffect(() => {
     searchMovies("spiderman");
@@ -43,6 +49,7 @@ const App = () => {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="Search for movies"
+          onKeyDown={enterSearch}
         />
         <img
           src={SearchIcon}
